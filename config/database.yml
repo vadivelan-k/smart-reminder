@@ -19,7 +19,8 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  host: ec2-54-246-102-33.eu-west-1.compute.amazonaws.com
+  database: d4lmtkoil4kmm7
+  username: zmpmpmaqpskwlm
+  port: 5432
+  password: OBA3lIerKtoZsNKx0215TO8lmQ
