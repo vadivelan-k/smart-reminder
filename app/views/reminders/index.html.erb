@@ -1,0 +1,34 @@
+
+<h4>Reminders</h4>
+
+<%= link_to "Create Reminder", new_reminder_path %> <br /><br />
+
+<%= flash[:success] if flash[:success] %>
+
+<% if @reminders.empty? %>
+	No reminder created yet.
+<% else %>
+	<table>
+		<tr>
+			<th>Description</th>
+			<th>Occurance Time</th>
+			<th>Actions</th>
+		</tr>
+		<% @reminders.each do |reminder| %>
+			<tr>
+				<td><%= reminder.description %></td>
+				<td><%= reminder.event_time %></td>
+				<td>
+					<%= link_to "Edit", edit_reminder_path(reminder) %> / 
+					<%= link_to "Remind People", "#" %> / 
+					<%= link_to "Gather Info", "#" %> / 
+					<%= link_to "Report", report_reminder_path(reminder) %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+
+<br />
+<%= link_to "Back to Home", root_path %> 

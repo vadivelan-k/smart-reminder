@@ -1,0 +1,33 @@
+
+<h4>Users</h4>
+
+<%= link_to "Create User", new_user_path %> <br /><br />
+
+<%= flash[:success] if flash[:success] %>
+
+<% if @users.empty? %>
+	No reminder created yet.
+<% else %>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Mobile</th>
+			<th>Actions</th>
+		</tr>
+		<% @users.each do |u| %>
+			<tr>
+				<td><%= u.name %></td>
+				<td><%= u.email %></td>
+				<td><%= u.mobile_number %></td>
+				<td>
+					<%= link_to "Edit", edit_user_path(u) %>
+					<%= link_to "Delete", user_path(u), :method => "delete", :confirm => "Are you sure want to delete user?" %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<br />
+<%= link_to "Back to Home", root_path %> 

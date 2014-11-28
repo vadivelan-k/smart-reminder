@@ -1,0 +1,10 @@
+<h4>Edit User</h4>
+
+<%= form_for @reminder do |f| %>
+	<%= render :partial => "form", :object => f, :locals => { :reminder => @reminder } %>
+	<%= f.submit "Update" %>
+<% end %>
+
+
+<br />
+<%= link_to "Back to Reminders List", reminders_path %> 

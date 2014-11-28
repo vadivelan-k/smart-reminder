@@ -1,0 +1,29 @@
+
+<h4>	Report </h4>
+
+<span style="font-size: 17px;">
+	Reminder: "<%= @reminder.description %>" @ <%= @reminder.event_time %>
+</span>
+<% if @report.nil? || @report.user_feedbacks.empty? %>
+	<br />
+	Report not available, Try again later.
+<% else %>
+	<table>
+		<tr>
+			<th>User Name</th>
+			<th>Status</th>
+		</tr>
+		<%	@report.user_feedbacks.each do |f| %>
+			<tr>
+				<td><%= f.user_name %></td>
+				<td><%= f.is_completed ? "Completed" : "Pending" %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+
+
+<br />
+<br />
+<%= link_to "Back to Reminders List", reminders_path %> 

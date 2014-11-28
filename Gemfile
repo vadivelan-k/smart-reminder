@@ -41,3 +41,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# jQuery Datepicker
+gem 'jquery_datepicker'

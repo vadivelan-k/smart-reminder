@@ -1,0 +1,9 @@
+<h4>Create User</h4>
+
+<%= form_for @user do |f| %>
+	<%= render :partial => "form", :object => f, :locals => { :user => @user } %>
+	<%= f.submit "Create" %>
+<% end %>
+
+<br />
+<%= link_to "Back to Users List", users_path %> 

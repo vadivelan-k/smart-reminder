@@ -14,6 +14,14 @@ SmartReminder::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  
+  resources :users
+  
+  resources :reminders do
+    member do
+      get 'report'
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do
