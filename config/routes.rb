@@ -23,6 +23,7 @@ SmartReminder::Application.routes.draw do
       get 'start_gather_info'
       get 'twilio_voice_callback'
       get 'twilio_keys_callback'
+      get 'remind_users'
     end
   end
 

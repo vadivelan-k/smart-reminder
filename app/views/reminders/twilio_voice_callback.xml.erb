@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <Say>This call is to remind event <%= @reminder.description %></Say>
-    <Gather timeout="5" finishOnKey="*" action="<%= twilio_keys_callback_reminder_url(@reminder) %>" method="GET">
+    <Gather timeout="5" finishOnKey="*" action="<%= twilio_keys_callback_reminder_url(@reminder, :format => "xml") %>" method="GET">
         <Say>If you completed Press 1, If it is pending Press 3</Say>
     </Gather>
 </Response>

@@ -75,4 +75,17 @@ class RemindersController < ApplicationController
 		@reminder.report.user_feedbacks << UserFeedback.create(:user_name => user.name, :is_completed => params["Digits"] == "1")
 	end
 	
+	def remind_users
+		reminder = Reminder.find(params[:id])
+		@client = Twilio::REST::Client.new ACC_SID, AUTH_TOKEN
+		User.all.each do |u|
+			@client.account.messages.create({    
+				:from => '+16504504925',
+				:to => "+91#{u.mobile_number}",
+				:body => reminder.description
+			})
+		end
+		redirect_to reminders_path
+	end
+	
 end
