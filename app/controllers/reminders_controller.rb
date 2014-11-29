@@ -62,6 +62,7 @@ class RemindersController < ApplicationController
 				:record => 'false'
 			})
 		end
+		redirect_to reminders_path
 	end
 	
 	def twilio_voice_callback
