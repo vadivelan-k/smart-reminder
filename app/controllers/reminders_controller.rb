@@ -50,12 +50,12 @@ class RemindersController < ApplicationController
 		@reminder.create_report
 		
 		# set up a client to talk to the Twilio REST API 
-		@client = Twilio::REST::Client.new account_sid, auth_token 
+		@client = Twilio::REST::Client.new ACC_SID, AUTH_TOKEN
 		User.all.each do |u|
 			@client.account.calls.create({
 				:from => '+918754489839', 
-				:to => "+91#{user.mobile_number}",  
-				:url => twilio_voice_callback_reminder_path(reminder, :format => "xml"),  
+				:to => "+91#{u.mobile_number}",  
+				:url => twilio_voice_callback_reminder_url(@reminder, :format => "xml"),  
 				:method => 'GET',  
 				:fallback_method => 'GET',  
 				:status_callback_method => 'GET',    
@@ -70,7 +70,7 @@ class RemindersController < ApplicationController
 	
 	def twilio_keys_callback
 		@reminder = Reminder.find(params[:id])
-		user = User.find(:mobile_number => params[:called][3..-1])
+		user = User.find(:mobile_number => params["Called"][3..-1])
 		@reminder.report.user_feedbacks << UserFeedback.create(:user_name => user.name, :is_completed => params[:digits] == "1")
 	end
 	
