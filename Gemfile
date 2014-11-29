@@ -44,3 +44,6 @@ gem 'jquery-rails'
 
 # jQuery Datepicker
 gem 'jquery_datepicker'
+
+# Twilio to handle communication between Web & Mobile
+gem 'twilio-ruby'
