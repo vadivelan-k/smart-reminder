@@ -20,7 +20,7 @@
 				<td><%= reminder.event_time %></td>
 				<td>
 					<%= link_to "Edit", edit_reminder_path(reminder) %> / 
-					<%= link_to "Remind People", "#" %> / 
+					<%= link_to "Remind People", remind_users_reminder_path(reminder) %> / 
 					<%= link_to "Gather Info", start_gather_info_reminder_path(reminder) %> / 
 					<%= link_to "Report", report_reminder_path(reminder) %>
 				</td>
