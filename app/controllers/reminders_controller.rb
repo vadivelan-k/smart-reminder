@@ -71,7 +71,7 @@ class RemindersController < ApplicationController
 	
 	def twilio_keys_callback
 		@reminder = Reminder.find(params[:id])
-		user = User.find(:mobile_number => params["Called"][3..-1])
+		user = User.where(:mobile_number => params["Called"][3..-1]).first
 		@reminder.report.user_feedbacks << UserFeedback.create(:user_name => user.name, :is_completed => params["Digits"] == "1")
 	end
 	
